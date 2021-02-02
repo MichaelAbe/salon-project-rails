@@ -1,0 +1,14 @@
+<h1> Edit <%= @appointment.name %></h1>
+
+<%= form_for @appointment do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+    </div> 
+    <div>   
+        <%= f.label :appointment_date %>
+        <%= f.datetime_field :appointment_date %>
+    </div>
+
+    <%= f.submit "Edit Appointment" %>
+<%end%>

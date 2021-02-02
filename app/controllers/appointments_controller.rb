@@ -6,8 +6,7 @@ class AppointmentsController < ApplicationController
         @appointments = Appointment.all
     end
 
-    def show
-        
+    def show    
     end
 
     def new
@@ -20,7 +19,21 @@ class AppointmentsController < ApplicationController
             #what to do if valid
             redirect_to appointments_path
         else 
-            #what to do if not valid.
+            #what to do if not valid
+            flash.now[:error] = @appointment.errors.full_messages
+            render :new
+        end
+    end
+
+    def edit
+    end
+
+    def update
+        if @appointment.update(app_params)
+            redirect_to appointment_path
+        else
+            flash.now[:error] = @appointment.errors.full_messages
+            render :edit
         end
     end
 
