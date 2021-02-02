@@ -1,16 +1,4 @@
 <h1>Schedule an Appointment</h1>
 
-<%= form_for @appointment do |f| %>
-    <h3>Select Stylist</h3>
-        <%= f.collection_select :employee_id, Employee.all, :id, :first_name, prompt: true %>
-    <div>
-        <%= f.label :name %>
-        <%= f.text_field :name%>
-    </div> 
-    <div>   
-        <%= f.label :appointment_date %>
-        <%= f.datetime_field :appointment_date %>
-    </div>
+<%= render partial: "form", locals: { appointment: @appointment, button_name: "Schedule Appointment" } %>
 
-    <%= f.submit "Schedule Appointment" %>
-<%end%>
