@@ -1,6 +1,8 @@
 <H1>Appointment Show</H1>
 
+<h2>Sytlist: <%= "Placeholder" %></h2>
 <h3><%= @appointment.name %></h3>
 <ul><%= @appointment.appointment_date %></ul>
 
-<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %>
+<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> 
+<%= link_to "Delete", appointment_path(@appointment), method: "delete" %>

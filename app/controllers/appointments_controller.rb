@@ -37,6 +37,12 @@ class AppointmentsController < ApplicationController
         end
     end
 
+    def destroy
+        @appointment.destroy
+        flash[:notice] = "Your appointment scheduled for #{@appointment.appointment_date} has been deleted."
+        redirect_to appointments_path
+    end
+
     private
 
         def find_appointment
