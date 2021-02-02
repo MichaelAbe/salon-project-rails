@@ -14,6 +14,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create 
+        #byebug
         @appointment = Appointment.new(app_params)
         if @appointment.save
             #what to do if valid
@@ -50,6 +51,6 @@ class AppointmentsController < ApplicationController
         end
 
         def app_params
-            params.require(:appointment).permit(:name, :appointment_date)
+            params.require(:appointment).permit(:name, :appointment_date, :employee_id)
         end
 end
