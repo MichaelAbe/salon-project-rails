@@ -1,16 +1,27 @@
 class AppointmentsController < ApplicationController
 
     before_action :find_appointment, only: [:show, :edit, :destroy, :update]
+    before_action :find_employee, only: [:index, :new, :create]
 
     def index 
-        @appointments = Appointment.all
+        if @employee
+            @appointments = @employee.appointments
+        else 
+            @appointments = Appointment.all
+        end
     end
 
     def show    
     end
 
     def new
-        @appointment = Appointment.new
+        #byebug
+        if @employee
+            @appointment = @employee.appointments.build
+            render :new_employee_appointment
+        else
+            @appointment = Appointment.new
+        end
     end
 
     def create 
@@ -20,9 +31,13 @@ class AppointmentsController < ApplicationController
             #what to do if valid
             redirect_to appointments_path
         else 
-            #what to do if not valid
             flash.now[:error] = @appointment.errors.full_messages
-            render :new
+            
+            if @employee
+                 render :new_employee_appointment
+            else
+                render :new
+            end
         end
     end
 
@@ -48,6 +63,12 @@ class AppointmentsController < ApplicationController
 
         def find_appointment
             @appointment = Appointment.find_by_id(params[:id])
+        end
+
+        def find_employee
+            if params[:employee_id]
+                @employee = Employee.find_by_id(params[:employee_id])
+            end
         end
 
         def app_params

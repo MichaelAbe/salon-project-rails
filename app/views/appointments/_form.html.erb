@@ -1,7 +1,7 @@
 
 <%= form_for appointment do |f| %>
     <h3>Select Stylist</h3>
-        <%= f.collection_select :employee_id, Employee.all, :id, :first_name, prompt: true %>
+        <%= f.collection_select :employee_id, Employee.all, :id, :first_name, prompt: true, class: "browser-default" %>
     <div>
         <%= f.label :name %>
         <%= f.text_field :name%>
@@ -12,4 +12,6 @@
     </div>
 
     <%= f.submit button_name %>
-<%end%>
+
+<% end %>
+

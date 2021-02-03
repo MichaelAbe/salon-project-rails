@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   root to: "static#home"
-  
+
   resources :customers
   resources :appointments
-  resources :employees
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :employees do
+    resources :appointments, only: [:new, :create, :index]
+  end
+ 
 end
