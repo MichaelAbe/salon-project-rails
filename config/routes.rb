@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy", as: "destroy_user_session"
 
+  get "/employee_login", to: "sessions#new_employee", as: "employee_login"
+  post "/employee_login", to: "sessions#create_employee"
+
 end

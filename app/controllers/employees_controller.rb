@@ -17,7 +17,8 @@ class EmployeesController < ApplicationController
         @employee = Employee.find_by_id(params[:id])
     end
 
+    def employee_params
+        params.require(:employee).permit(:username, :password, :first_name, :last_name, :bio)
+    end
+
 end
-
-
-

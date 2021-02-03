@@ -4,7 +4,7 @@
   <div class="container">
     <%= link_to("Home", root_path, class: "brand-logo") %>
     <ul class="right">
-      <% if user_signed_in? %> 
+      <% if user_signed_in? || employee_signed_in? %> 
           <ul>
             <li><%= link_to "Appointmnets", appointments_path %></li>
           </ul>

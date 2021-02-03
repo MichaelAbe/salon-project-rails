@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
             if @user.save 
-                session[:user_id] = @user.id #use session to login
+                login_user 
                 redirect_to appointments_path
+                flash[:notice] = "Welcome to the App!"
             else
                 flash.now[:error] = @user.errors.full_messages
                 render :new
@@ -21,3 +22,4 @@ class UsersController < ApplicationController
         params.require(:user).permit(:email, :password)
     end
 end
+

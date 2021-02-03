@@ -4,4 +4,8 @@ module SessionsHelper
         !!session[:user_id]
     end
     
+    def employee_signed_in?
+        !!session[:employee_id]
+    end
+    
 end
