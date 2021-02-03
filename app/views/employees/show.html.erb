@@ -1,2 +1,4 @@
 <h1><%= @employee.first_name + " " + @employee.last_name %></h1>
 <h3><%= @employee.bio %></h3>
+
+<%= link_to "Schedule an appointment with #{@employee.first_name}", new_employee_appointment_path(@employee) %>

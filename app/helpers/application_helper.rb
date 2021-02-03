@@ -1,5 +1,8 @@
 module ApplicationHelper
     def render_nav_links
+
+        
+        
         if true #is logged in
             content_tag("ul") do 
                 content_tag("li") do #apointments
@@ -8,10 +11,8 @@ module ApplicationHelper
                 content_tag("li") do #schdule appointment
                     link_to("Schedule Appointment", new_appointment_path)
                 end +
-                    content_tag("li") do #stylist index
-                        link_to("Stylists", employees_path)
-                    end
-                    end 
+                content_tag("li") do #Employee index
+                    link_to("Our Stylists", employees_path)
                 end   
             end   
         else
