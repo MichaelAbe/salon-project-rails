@@ -1,12 +1,14 @@
 class AppointmentsController < ApplicationController
 
     before_action :find_appointment, only: [:show, :edit, :destroy, :update]
-    before_action :find_employee, only: [:index, :new, :create]
+    before_action :find_employee, only: [:new, :create]
 
     def index 
-        if @employee
-            @appointments = @employee.appointments
-        else 
+        if !!current_employee
+            @appointments = @employee.appointments 
+        elsif !!current_user
+            @appointments = @user.appointments
+        else
             @appointments = Appointment.all
         end
     end
@@ -68,6 +70,12 @@ class AppointmentsController < ApplicationController
         def find_employee
             if params[:employee_id]
                 @employee = Employee.find_by_id(params[:employee_id])
+            end
+        end
+
+        def find_user
+            if params[:user_id]
+                @user = User.find_by_id(params[:user_id])
             end
         end
 

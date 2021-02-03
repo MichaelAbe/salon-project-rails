@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-        User.find_by_id(session[:user_id]) if user_logged_in?
+        @user = User.find_by_id(session[:user_id]) if user_signed_in?
     end
 
     def login_user
@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
     end
 
     def current_employee
-        Employee.find_by_id(session[:employee_id]) if employee_signed_in?
+        @employee = Employee.find_by_id(session[:employee_id]) if employee_signed_in?
+        
     end
 
     def login_employee
