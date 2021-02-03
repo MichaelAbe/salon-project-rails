@@ -12,7 +12,7 @@ module ApplicationHelper
                     link_to("Our Stylists", employees_path)
                 end 
                 content_tag("li") do #sign out
-                    link_to("Sign Out", destroy_session_path, method: "DELETE")
+                    link_to("Sign Out", destroy_user_session_path, method: "DELETE")
                 end    
             end   
         else
