@@ -10,7 +10,10 @@ module ApplicationHelper
                 end +
                 content_tag("li") do #Employee index
                     link_to("Our Stylists", employees_path)
-                end   
+                end 
+                content_tag("li") do #sign out
+                    link_to("Sign Out", destroy_session_path, method: "DELETE")
+                end    
             end   
         else
             content_tag("ul") do 
