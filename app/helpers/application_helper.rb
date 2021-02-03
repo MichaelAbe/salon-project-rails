@@ -1,11 +1,8 @@
 module ApplicationHelper
-    def render_nav_links
-
-        
-        
-        if true #is logged in
+    def render_nav_links(signed_in) 
+        if signed_in #is logged in
             content_tag("ul") do 
-                content_tag("li") do #apointments
+                content_tag("li") do #appointments
                     link_to("Appointments", appointments_path)
                 end +
                 content_tag("li") do #schdule appointment
