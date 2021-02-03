@@ -34,7 +34,7 @@ Appointment.create([
     {appointment_date: Time.now, name: "Eyebrows", employee_id: 3, user_id: 3},
     {appointment_date: Time.now, name: "Skin Scrub", employee_id: 4, user_id: 3},
     {appointment_date: Time.now, name: "Hair", employee_id: 1, user_id: 4},
-    {appointment_date: Time.now, name: "Nails", employee_id: 2, user_id:Eyebrows
+    {appointment_date: Time.now, name: "Nails", employee_id: 2, user_id:4},
     {appointment_date: Time.now, name: "Eyebrows", employee_id: 3, user_id: 4},
     {appointment_date: Time.now, name: "Skin Scrub", employee_id: 4, user_id: 4}, 
 ])
