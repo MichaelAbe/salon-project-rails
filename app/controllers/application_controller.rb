@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     def current_user
         User.find_by_id(session[:user_id]) if user_logged_in?
     end
+
+    def login_user
+        session[:user_id] = @user.id
+    end
 end
