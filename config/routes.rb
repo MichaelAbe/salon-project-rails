@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :users
   root to: "static#home"
 
   resources :customers
@@ -8,5 +7,8 @@ Rails.application.routes.draw do
   resources :employees do
     resources :appointments, only: [:new, :create, :index]
   end
+
+  get "/signup", to: "users#new", as: "signup"
+  post "/signup", to: "users#create"
  
 end
