@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get "/employee_login", to: "sessions#new_employee", as: "employee_login"
   post "/employee_login", to: "sessions#create_employee"
 
+  match '/auth/:google_oath2/callback' => "sessions#google", via: [:get, :post]
+
 end

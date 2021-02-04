@@ -1,5 +1,18 @@
 class SessionsController < ApplicationController
 
+    def google
+        
+        @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+            user.password = SecureRandom.hex(15)
+        end
+        if @user && @user.id 
+            login_user
+            redirect_to appointments_path
+        else
+            redirect_to root_path
+        end
+    end
+
     def new #get/login
 
     end
@@ -32,6 +45,12 @@ class SessionsController < ApplicationController
             flash.now[:error] = ["Username or Password incorrect"]
             render :new  
         end
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 end
 
