@@ -3,7 +3,8 @@ class Appointment < ApplicationRecord
     validates_presence_of :name, :appointment_date
     belongs_to :employee
     belongs_to :user
-    accepts_nested_attributes_for :employee, reject_if: :all_blank
+    accepts_nested_attributes_for :employee
+    accepts_nested_attributes_for :user
 
     def employee_first_name
         self.employee.first_name if self.employee

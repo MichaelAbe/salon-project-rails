@@ -17,29 +17,30 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        #byebug
-        if @employee
+        if find_employee && !!current_user
+            
+            @appointment = @user.appointments.build
+             render :new_employee_appointment
+        elsif !!current_employee
             @appointment = @employee.appointments.build
-            render :new_employee_appointment
+            redirect_to root_path
         else
+            
             @appointment = Appointment.new
         end
     end
 
     def create 
-        #byebug
-        @appointment = Appointment.new(app_params)
+        current_user
+        @appointment = @user.appointments.build(app_params)
+       
         if @appointment.save
+
             #what to do if valid
             redirect_to appointments_path
         else 
             flash.now[:error] = @appointment.errors.full_messages
-            
-            if @employee
-                 render :new_employee_appointment
-            else
                 render :new
-            end
         end
     end
 
@@ -80,6 +81,6 @@ class AppointmentsController < ApplicationController
         end
 
         def app_params
-            params.require(:appointment).permit(:name, :appointment_date, :employee_id)
+            params.require(:appointment).permit(:name, :appointment_date, :employee_id, :user_id)
         end
 end

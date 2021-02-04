@@ -1,6 +1,7 @@
 <h1>New Employee Appointment</h1>
 
 <%= form_for [@employee, @appointment] do |f| %>
+    <%= f.hidden_field :employee_id, value: @employee.id %>
     <div>
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -10,8 +11,8 @@
         <%= f.datetime_field :appointment_date %>
     </div>
 
-    <%= f.hidden_field :employee_id %>
     
+
     <%= f.submit "Schedule Appointment" %>
 
 <% end %>
