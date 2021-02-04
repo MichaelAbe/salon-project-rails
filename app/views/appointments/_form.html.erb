@@ -1,10 +1,11 @@
 
 <%= form_for appointment do |f| %>
-    <h3>Select Stylist</h3>
+
         <%= f.collection_select :employee_id, Employee.all, :id, :first_name, prompt: true, class: "browser-default" %>
+        
     <div>
         <%= f.label :name %>
-        <%= f.text_field :name%>
+        <%= f.text_field :name, placeholder: "Notes/Requests" %>
     </div> 
     <div>   
         <%= f.label :appointment_date %>
@@ -15,3 +16,6 @@
 
 <% end %>
 
+<script>$(document).ready(function(){
+    $('select').formSelect();
+  });</script>

@@ -22,3 +22,31 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+backup nav
+
+<nav class="grey">
+  <div class="container">
+    <%= link_to("Home", root_path, class: "brand-logo") %>
+    <ul class="right">
+      <% if user_signed_in? || employee_signed_in? %> 
+          <ul>
+            <li><%= link_to "Appointmnets", appointments_path %></li>
+          </ul>
+          <ul>
+             <li><%= link_to "Schedule Appointmnets", new_appointment_path %></li>
+          </ul>
+          <ul>
+              <li><%= link_to "Our Stylists", employees_path %></li>
+          </ul>
+          <ul>
+              <li><%= link_to "Signout", destroy_user_session_path, method: "DELETE" %></li>
+          </ul>
+      <% else %>
+          <ul>
+              <li><%= link_to "I am NOT LOGGED IN", "#" %></li>
+          </ul>
+      <% end %>
+    </ul>
+  </div>
+</nav>
