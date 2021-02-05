@@ -6,3 +6,11 @@
         <ul><%= appointment.appointment_date %></ul>
     <%end%>
 </ul>
+
+<%= link_to "Calendar", calendar_path %>
+
+
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>

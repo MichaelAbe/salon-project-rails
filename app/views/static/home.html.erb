@@ -1,7 +1,77 @@
-<h1>Landing Page</h1>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="parallax-container">
+      <div class="parallax"><img src="https://images.squarespace-cdn.com/content/v1/5a7b665a29f1873705371836/1562611535382-03KWSMDRGKRBMQO340TP/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/_MG_4547%2B1.jpg" ></div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+        <h2 class="grey darken-2-text">Thank you for visiting Style Salon</h2>
+        <p class="grey-text text-darken-3 lighten-3">
+            <div>We are a small town Salon with "big city" style. We pride ourselves on hard work and dedication to making your style goals a reality!</div>
+            <ul><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post, class: 'btn btn-large right grey darken-4' %></ul>
+            <br>
+            <br>
+            <ul><%= link_to "Log In", login_path, class: 'btn btn-large right grey darken-2' %></ul>
+        
+            <%= button_to "Signup", signup_path, :method => "get", class: 'btn btn-large right grey white-text'  %>
+            
+            
+            
+            
+        
 
-<li><%= link_to "Signup", signup_path %></li>
-<li><%= link_to "Log In", login_path %></li>
-<li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post %></li>
 
-<footer><%= link_to "Employee Login", employee_login_path %></footer>
+        </p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="https://images.squarespace-cdn.com/content/v1/54f20bd9e4b0b6eeae947a00/1582752706299-3JPDTGO73V14RJRFGGOB/ke17ZwdGBToddI8pDm48kA47qaxzGU3oa60Mv3IrElh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0hGaawTDWlunVGEFKwsEdnE_ZbuhWuTjDl9Hn0Vaidb23CyzgPgNZ_l0zINYXrCLdg/fullsizeoutput_a26.jpeg"></div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+        <footer class="page-footer color grey darken-4">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Cancellation Policy</h5>
+                <p class="grey-text text-lighten-4">We value your time as we hope you value ours. No-shows and cancellations within 12 hours are charged the full price of the appointment. For this reason, we require a credit card on file to book an appointment. If you choose to rebook your appointment at the time of cancellation, we will waive the cancellation fee.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Contact Us</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.google.com/search?q=505+Muirs+Chapel+Rd%2C+Greensboro%2C+NC+27410&rlz=1C1CHBF_enUS866US866&oq=505+Muirs+Chapel+Rd%2C+Greensboro%2C+NC+27410&aqs=chrome..69i57j0i22i30.541j0j9&sourceid=chrome&ie=UTF-8">505 Muirs Chapel Rd, Greensboro, NC</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">27410</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">fakeemail@email.com</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">555.555.5555</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2021 Fake Copyright 
+            <%= link_to "Employee Login", employee_login_path, class: 'right' %>
+            </div>
+          </div>
+        </footer>
+
+<script>
+ $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+</script>
+
+

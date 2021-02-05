@@ -50,3 +50,11 @@ backup nav
     </ul>
   </div>
 </nav>
+
+ landing page backup
+
+<li><%= link_to "Signup", signup_path %></li>
+<li><%= link_to "Log In", login_path %></li>
+<li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post %></li>
+
+<%= link_to "Employee Login", employee_login_path %>

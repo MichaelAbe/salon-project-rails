@@ -1,6 +1,6 @@
-<nav class="teal darken-1">
+<nav class="grey darken-4" >
   <div class="container">
-    <%= link_to("Home", root_path, class: "brand-logo") %>
+    <%= link_to("Style Salon", root_path, class: "brand-logo") %>
     <ul class="right">
       <% if user_signed_in? || employee_signed_in? %> 
         
@@ -15,12 +15,14 @@
         
               <li><%= link_to "Signout", destroy_user_session_path, method: "DELETE" %></li>
           
-      <% else %>
+      <% else  %>
           
               <li><%= link_to "I am NOT LOGGED IN", "#" %></li>
-          
+
+
       <% end %>
     </ul>
   </div>
 </nav>
 
+ linear-gradient(red, yellow)

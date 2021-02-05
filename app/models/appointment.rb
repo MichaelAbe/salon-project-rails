@@ -9,6 +9,10 @@ class Appointment < ApplicationRecord
     def employee_first_name
         self.employee.first_name if self.employee
     end
+
+    def start_time
+        self.appointment.appointment_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+    end
 end
 
 

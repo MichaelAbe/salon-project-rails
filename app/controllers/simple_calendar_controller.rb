@@ -1,0 +1,5 @@
+class SimpleCalendarController < ApplicationController
+
+
+
+end
