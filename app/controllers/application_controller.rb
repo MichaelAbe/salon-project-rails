@@ -27,5 +27,17 @@ class ApplicationController < ActionController::Base
         session[:employee_id] = @employee.id
     end
 
+
+    def redirect_if_not_user
+        if !current_user
+            redirect_to '/problem'
+        end   
+
+    def redirect_if_not_employee
+        if !current_employee
+            redirect_to '/problem'
+        end
+    end
+
 end
 

@@ -6,18 +6,13 @@
 <br>
 <br>
 <br>
-<%= month_calendar(attribute: :starts_at) do |date| %>
-  <%= date %>
-<% end %>
-<br>
-<br>
-<br>
+<%= render partial: "calendar", locals: {appointments: @appointments} %>
 
-    <% @appointments.each do |appointment|%>
+   <!--  <% @appointments.each do |appointment|%>
         <li><%= link_to appointment.employee.first_name, appointment_path(appointment) %></li>
         <ul>&nbsp&nbsp&nbspDate: <%= appointment.appointment_date.strftime("%m / %d") %></ul>
         <ul>&nbsp&nbsp&nbspTime: <%= appointment.appointment_date.strftime("%l : %M - %p") %></ul>
-    <%end%>
+    <%end%> -->
 </ul>
 </div>
 <br>
@@ -27,3 +22,6 @@
 <br>
 <br>
 <%= render partial: "/layouts/footer" %>
+
+
+

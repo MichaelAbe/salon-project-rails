@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "static#home"
+  get "/problem", to: "static#problem", as: "missing_credentials"
 
   resources :customers
   resources :appointments

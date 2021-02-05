@@ -1,0 +1,10 @@
+<%= month_calendar(events: appointments) do |date, appointments| %>
+    <%= date.day %>
+    <%if  !appointments.nil? %>
+      <% appointments.each do |appointment| %>
+        <div>
+          <%= link_to appointment.name, appointment_path(appointment) %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>

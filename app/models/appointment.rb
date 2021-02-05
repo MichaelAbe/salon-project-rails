@@ -11,7 +11,7 @@ class Appointment < ApplicationRecord
     end
 
     def start_time
-        self.appointment.appointment_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+        self.appointment_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
     end
 end
 

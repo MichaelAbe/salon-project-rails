@@ -8,29 +8,31 @@ class AppointmentsController < ApplicationController
             @appointments = @employee.appointments 
         elsif !!current_user
             @appointments = @user.appointments
-        else
-            @appointments = Appointment.all
+        else   
+            redirect_if_not_owner
         end
     end
 
-    def show    
+    def show 
+        redirect_if_not_owner 
     end
 
     def new
+        current_user
+        redirect_if_not_owner
         if find_employee && !!current_user
-            
             @appointment = @user.appointments.build
              render :new_employee_appointment
         elsif !!current_employee
             @appointment = @employee.appointments.build
             redirect_to root_path
         else
-            
             @appointment = Appointment.new
         end
     end
 
     def create 
+        redirect_if_not_owner
         current_user
         @appointment = @user.appointments.build(app_params)
        
@@ -45,9 +47,11 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
+        redirect_if_not_owner
     end
 
     def update
+        redirect_if_not_owner
         if @appointment.update(app_params)
             redirect_to appointment_path
         else
@@ -57,6 +61,7 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy
+        redirect_if_not_owner
         @appointment.destroy
         flash[:notice] = "Your appointment scheduled for #{@appointment.appointment_date} has been deleted."
         redirect_to appointments_path
