@@ -1,27 +1,33 @@
-<h1>Employee Index</h1>
 
-<ul>
-    <% @employees.each do |employee|%>
-        <li><%= link_to employee.first_name, employee_path(employee) %></li>
-    <% end %>
-</ul>
-
-
-<% @employees.each do |employee|%>
+<div class= "container">
+<br>
+<br>
+<br>
+<h3 font-family: Georgia, serif; >&nbsp&nbsp&nbsp our stylists</h3>
+<br>
+<br>
+<br>
 <div class="row">
-    <div class="col s9 m5">
+    <div class="col s4 m4">
+<% @employees.each do |employee|%>
       <div class="card">
         <div class="card-image">
-          <img src="https://i.pinimg.com/474x/45/11/c5/4511c5871ff8011385b023be70878d81.jpg">
+          <img src=<%= employee.picture %>>
           <span class="card-title"><%= employee.first_name %></span>
         </div>
         <div class="card-content">
           <p><%= employee.bio %></p>
         </div>
         <div class="card-action">
-          <p><%= link_to "Schedule an appointment with " + employee.first_name , new_employee_appointment_path(employee) %></p>
+          <p class="text-black"><%= link_to "Schedule an appointment with " + employee.first_name , new_employee_appointment_path(employee) %></p>
         </div>
       </div>
+<% end %>
     </div>
   </div>
-<% end %>
+</div>
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>
+

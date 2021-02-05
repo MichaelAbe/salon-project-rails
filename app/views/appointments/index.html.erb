@@ -1,16 +1,29 @@
-<h1>Appointment Index</h1>
+<div class= "container">
+<br>
+<br>
+<br>
+<h3>&nbsp&nbsp&nbsp your calendar</h3>
+<br>
+<br>
+<br>
+<%= month_calendar(attribute: :starts_at) do |date| %>
+  <%= date %>
+<% end %>
+<br>
+<br>
+<br>
 
-<ul>
     <% @appointments.each do |appointment|%>
-        <li><%= link_to appointment.name, appointment_path(appointment) %></li>
-        <ul><%= appointment.appointment_date %></ul>
+        <li><%= link_to appointment.employee.first_name, appointment_path(appointment) %></li>
+        <ul>&nbsp&nbsp&nbspDate: <%= appointment.appointment_date.strftime("%m / %d") %></ul>
+        <ul>&nbsp&nbsp&nbspTime: <%= appointment.appointment_date.strftime("%l : %M - %p") %></ul>
     <%end%>
 </ul>
-
-<%= link_to "Calendar", calendar_path %>
-
-
-
-<%= month_calendar do |date| %>
-  <%= date.day %>
-<% end %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= render partial: "/layouts/footer" %>

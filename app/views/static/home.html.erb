@@ -12,13 +12,13 @@
       <div class="row container">
         <h2 class="grey darken-2-text">Thank you for visiting Style Salon</h2>
         <p class="grey-text text-darken-3 lighten-3">
-            <div>We are a small town Salon with "big city" style. We pride ourselves on hard work and dedication to making your style goals a reality!</div>
+            <div class="col s4 m8">We are a small town Salon with "big city" style. We pride ourselves on hard work and dedication to making your style goals a reality!</div>
             <ul><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post, class: 'btn btn-large right grey darken-4' %></ul>
             <br>
             <br>
             <ul><%= link_to "Log In", login_path, class: 'btn btn-large right grey darken-2' %></ul>
-        
-            <%= button_to "Signup", signup_path, :method => "get", class: 'btn btn-large right grey white-text'  %>
+            	
+            <%= link_to "Sign up", signup_path, :method => "get", class: 'btn btn-large right grey white-text'  %>
             
             
             
@@ -54,7 +54,7 @@
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="https://www.google.com/search?q=505+Muirs+Chapel+Rd%2C+Greensboro%2C+NC+27410&rlz=1C1CHBF_enUS866US866&oq=505+Muirs+Chapel+Rd%2C+Greensboro%2C+NC+27410&aqs=chrome..69i57j0i22i30.541j0j9&sourceid=chrome&ie=UTF-8">505 Muirs Chapel Rd, Greensboro, NC</a></li>
                   <li><a class="grey-text text-lighten-3" href="#">27410</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">fakeemail@email.com</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">fake_email@email.com</a></li>
                   <li><a class="grey-text text-lighten-3" href="#">555.555.5555</a></li>
                 </ul>
               </div>

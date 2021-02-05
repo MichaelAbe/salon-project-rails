@@ -1,4 +1,29 @@
-<h1>New Employee Appointment</h1>
+<div class= "container">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+
+<img src=<%= @employee.picture %> alt="Avatar" style="width:200px">
+
+</body>
+</html> 
+<br>
+<br>
+<br>
+<h3>schedule your appointment with <%= @employee.first_name %></h3>
+<br>
+<br>
+<br>
 
 <%= form_for [@employee, @appointment] do |f| %>
     <%= f.hidden_field :employee_id, value: @employee.id %>
@@ -6,13 +31,29 @@
         <%= f.label :name %>
         <%= f.text_field :name %>
     </div> 
+    <br>
+    <br>
+    <br>
     <div>   
         <%= f.label :appointment_date %>
         <%= f.datetime_field :appointment_date %>
     </div>
+    <br>
+    <br>
+    <br>
 
     
 
-    <%= f.submit "Schedule Appointment" %>
+    <%= f.submit "schedule appointment", class: 'btn btn-large right grey darken-2' %>
 
 <% end %>
+
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>
+

@@ -1,14 +1,38 @@
-<h3>Login</h3>
-
+<div class="container">
+<br>
+<br>
+<br>
+<h3>&nbsp&nbsp&nbsp login</h3>
+<br>
+    <br>
+    <br>
 <%= form_tag login_path do %>
     <div class="input-field">
         <%= label_tag :email %>
         <%= email_field_tag :email, nil,  autofocus: true%>
     </div>
+    <br>
+    <br>
+    <br>
     <div class="input-field">
         <%= label_tag :password %>
         <%= password_field_tag :password %>
     </div>
-
-    <%= submit_tag "Login" %>
+    <br>
+    <br>
+    <br>
+    <%= submit_tag "login", class: 'btn btn-large right grey darken-2' %>
 <% end %>
+</div>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>
+</div>
+

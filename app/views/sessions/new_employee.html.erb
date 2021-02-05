@@ -1,14 +1,38 @@
-<h1>Employee Login</h1>
-
+<div class="container">
+ <br>
+    <br>
+    <br>
+<h1>&nbsp&nbsp&nbsp employee login</h1>
+ <br>
+    <br>
+    <br>
 <%= form_tag employee_login_path do %>
     <div class="input-field">
         <%= label_tag :username %>
         <%= text_field :username, nil,  autofocus: true%>
     </div>
+     <br>
+    <br>
+    <br>
     <div class="input-field">
         <%= label_tag :password %>
         <%= password_field_tag :password %>
     </div>
-
-    <%= submit_tag "Login" %>
+     <br>
+    <br>
+    <br>
+    <%= submit_tag "Login", class: 'btn btn-large right grey darken-2' %>
 <% end %>
+</div>
+
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>
+</div>

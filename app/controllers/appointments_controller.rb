@@ -62,6 +62,9 @@ class AppointmentsController < ApplicationController
         redirect_to appointments_path
     end
 
+    def simple_calendar
+    end
+
     private
 
         def find_appointment

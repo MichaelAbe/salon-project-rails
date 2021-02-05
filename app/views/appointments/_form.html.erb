@@ -2,15 +2,22 @@
 <%= form_for appointment do |f| %>
 
         <%= f.collection_select :employee_id, Employee.all, :id, :first_name, prompt: true, class: "browser-default" %>
-        
+    <br>
+    <br>
     <div>
-        <%= f.label :name %>
-        <%= f.text_field :name, placeholder: "Notes/Requests" %>
-    </div> 
-    <div>   
         <%= f.label :appointment_date %>
         <%= f.datetime_field :appointment_date %>
+    </div> 
+    <br>
+    <br>
+    <div>   
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "Notes/Requests" %>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
    
     <%= f.submit button_name %>
 

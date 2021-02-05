@@ -2,3 +2,8 @@
 <h3><%= @employee.bio %></h3>
 
 <p><%= link_to "Schedule an appointment with #{@employee.first_name}", new_employee_appointment_path(@employee) %></p>
+
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>

@@ -1,13 +1,36 @@
-<h1>Signup</h1>
-
+<div class="container">
+<br>
+<br>
+<br>
+<h3>&nbsp&nbsp&nbsp signup</h3>
+<br>
+<br>
+<br>
 <%= form_for @user, url: signup_path do |f| %>
     <div class="input-field">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
     </div>
+<br>
+<br>
+<br>
     <div class="input-field">
         <%= f.label :password %>
         <%= f.password_field :password %>
     </div>
-    <%= f.submit "Signup" %>
+    <br>
+<br>
+<br>
+    <%= f.submit "Signup", class: 'btn btn-large right grey darken-2' %>
 <% end %>
+</div>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>

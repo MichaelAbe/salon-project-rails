@@ -1,8 +1,44 @@
-<H1>Appointment Show</H1>
 
-<h2>Stylist: <%= @appointment.employee_first_name %></h2>
-<h3><%= @appointment.name %></h3>
-<ul><%= @appointment.appointment_date %></ul>
+<div class= "container">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> 
-<%= link_to "Delete", appointment_path(@appointment), method: "delete" %>
+<img src=<%= @appointment.employee.picture %> alt="Avatar" style="width:200px">
+
+</body>
+</html> 
+
+
+
+
+<br>
+<br>
+<br>
+<h3>You have an appointment scheduled with <%= @appointment.employee_first_name %></h3>
+<br>
+<h4>Date: <%= @appointment.appointment_date.strftime("%m / %d") %></h4>
+
+<h4>Time: <%= @appointment.appointment_date.strftime("%l : %M - %p") %></h4>
+
+<h4>Notes: <%= @appointment.name %></h4>
+
+<%= link_to "Delete", appointment_path(@appointment), method: "delete", class: 'btn btn-large right black' %>
+</div>
+<%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: 'btn btn-large right grey darken-2' %> 
+    <br>
+    <br>
+    <br>
+<%= render partial: "/layouts/footer" %>

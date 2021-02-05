@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
             redirect_to appointments_path
         else
             flash.now[:error] = ["Username or Password incorrect"]
-            render :new  
+            render :new_employee
         end
     end
 
