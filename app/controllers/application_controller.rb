@@ -28,16 +28,24 @@ class ApplicationController < ActionController::Base
     end
 
 
-    def redirect_if_not_user
+    def redirect_if_not_allowed
         if !current_user
             redirect_to '/problem'
-        end   
-
-    def redirect_if_not_employee
-        if !current_employee
+        elsif !current_employee
             redirect_to '/problem'
         end
     end
 
+    def redirect_if_not_logged_in
+        if !user_signed_in? && !employee_signed_in?
+            redirect_to '/problem'
+        else
+        end
+    end
+
+
+
 end
+
+
 

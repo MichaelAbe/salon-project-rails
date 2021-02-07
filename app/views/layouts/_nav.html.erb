@@ -1,25 +1,16 @@
 <nav  style="background: linear-gradient(#212121, #424242);" >
   <div class="container">
     <%= link_to("Style Salon", root_path, class: "brand-logo") %>
-    <ul class="right">
-      <% if user_signed_in? || employee_signed_in? %> 
-        
+      <ul class="right">
+        <% if user_signed_in? %> 
             <li><%= link_to "appointmnets", appointments_path %></li>
-          
-        
-             <li><%= link_to "schedule appointmnet", new_appointment_path %></li>
-          
-        
-              <li><%= link_to "stylists", employees_path %></li>
-          
-        
-              <li><%= link_to "signout", destroy_user_session_path, method: "DELETE" %></li>
-          
-      <% else  %>
-          
-              <li><%= link_to "I am NOT LOGGED IN", "#" %></li>
-
-
+            <li><%= link_to "schedule appointmnet", new_appointment_path %></li>
+            <li><%= link_to "stylists", employees_path %></li>
+            <li><%= link_to "signout", destroy_user_session_path, method: "DELETE" %></li>
+        <% elsif employee_signed_in? %>   
+          <li><%= link_to "appointmnets", appointments_path %></li>    
+          <li><%= link_to "signout", destroy_user_session_path, method: "DELETE" %></li>
+        <% else  %>          
       <% end %>
     </ul>
   </div>

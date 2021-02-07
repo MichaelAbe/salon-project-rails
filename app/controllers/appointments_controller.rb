@@ -1,25 +1,22 @@
 class AppointmentsController < ApplicationController
-
+    before_action :redirect_if_not_logged_in, only: [:index, :show, :new, :create, :edit, :update]
     before_action :find_appointment, only: [:show, :edit, :destroy, :update]
     before_action :find_employee, only: [:new, :create]
 
-    def index 
+    def index
         if !!current_employee
             @appointments = @employee.appointments 
         elsif !!current_user
             @appointments = @user.appointments
         else   
-            redirect_if_not_owner
+
         end
     end
 
-    def show 
-        redirect_if_not_owner 
+    def show
     end
 
     def new
-        current_user
-        redirect_if_not_owner
         if find_employee && !!current_user
             @appointment = @user.appointments.build
              render :new_employee_appointment
@@ -27,13 +24,11 @@ class AppointmentsController < ApplicationController
             @appointment = @employee.appointments.build
             redirect_to root_path
         else
-            @appointment = Appointment.new
+            redirect_to '/problem'
         end
     end
 
     def create 
-        redirect_if_not_owner
-        current_user
         @appointment = @user.appointments.build(app_params)
        
         if @appointment.save
@@ -45,13 +40,11 @@ class AppointmentsController < ApplicationController
                 render :new
         end
     end
-
+ 
     def edit
-        redirect_if_not_owner
     end
 
     def update
-        redirect_if_not_owner
         if @appointment.update(app_params)
             redirect_to appointment_path
         else
@@ -61,7 +54,6 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy
-        redirect_if_not_owner
         @appointment.destroy
         flash[:notice] = "Your appointment scheduled for #{@appointment.appointment_date} has been deleted."
         redirect_to appointments_path
@@ -91,4 +83,6 @@ class AppointmentsController < ApplicationController
         def app_params
             params.require(:appointment).permit(:name, :appointment_date, :employee_id, :user_id)
         end
+
+    
 end
