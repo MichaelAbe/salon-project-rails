@@ -43,9 +43,29 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def wrong_user_check
+        if @user != current_user
+            reirect_to '/problem'
+        end
+    end
 
+    def access?
+        #byebug
+        if !Appointment.exists?(params[:id])
+            redirect_to '/problem'
+        elsif !!@user and @user.id == @appointment.user_id && Appointment.find_by_id(params[:id]).user_id == @appointment.user_id
+            appointment_path(@user) 
+        elsif !!@employee and @employee.id == @appointment.employee_id && Appointment.find_by_id(params[:id]).employee_id == @appointment.employee_id
+            appointment_path(@employee)
+      
+        else
+            redirect_to '/problem'
+        end
+    end
 
 end
 
+
+#if !!Appointment.find_by_id(params[:appointment_id])
 
 

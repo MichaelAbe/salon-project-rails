@@ -8,11 +8,22 @@
 <br>
 <%= render partial: "calendar", locals: {appointments: @appointments} %>
 
-   <!--  <% @appointments.each do |appointment|%>
+<h3>&nbsp&nbsp&nbsp upcoming</h3>
+
+   <% @current_appointments.each do |appointment|%>
         <li><%= link_to appointment.employee.first_name, appointment_path(appointment) %></li>
         <ul>&nbsp&nbsp&nbspDate: <%= appointment.appointment_date.strftime("%m / %d") %></ul>
         <ul>&nbsp&nbsp&nbspTime: <%= appointment.appointment_date.strftime("%l : %M - %p") %></ul>
-    <%end%> -->
+    <%end%>
+<h3>&nbsp&nbsp&nbsp past</h3>
+    <br>
+    <% @past_appointments.each do |appointment|%>
+        <li><%= link_to appointment.employee.first_name, appointment_path(appointment) %></li>
+        <ul>&nbsp&nbsp&nbspDate: <%= appointment.appointment_date.strftime("%m / %d") %></ul>
+        <ul>&nbsp&nbsp&nbspTime: <%= appointment.appointment_date.strftime("%l : %M - %p") %></ul>
+    <%end%>
+
+
 </ul>
 </div>
 <br>
