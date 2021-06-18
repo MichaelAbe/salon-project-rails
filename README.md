@@ -1,60 +1,46 @@
 # README
+# Style Salon 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+An app designed to allow a sophisticated conduit between a customer and a salon. A user can signup by entering their email address or using a google account(omniauth). Once signed in a user is able to schedule or edit an existing an appointment.
 
-* Ruby version
 
-* System dependencies
+## Installation
 
-* Configuration
+System dependencies run:
+```bash
+'bundle install'
+```
 
-* Database creation
+Database creation:  already created
 
-* Database initialization
+Database initialization run 
+```bash
+'rails db:migrate'
+```
+To set up omniauth go to https://console.developers.google.com/ and follow instructions. After receiving a client id and a client secret, set up .env file to add it to and for use of gitignore
 
-* How to run the test suite
+Run 
+```bash
+'rails s'
+```
+"rails s" command in terminal and visit http://localhost:3000/ to interact with the application
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage
 
-* Deployment instructions
+Create profile
 
-* ...
+Access list of available stylists
 
-backup nav
+Use dropdown to select time/date and type of appointment 
+ 
+Full crud capability to Create, Read, Update, and Delete appointment
 
-<nav class="grey">
-  <div class="container">
-    <%= link_to("Home", root_path, class: "brand-logo") %>
-    <ul class="right">
-      <% if user_signed_in? || employee_signed_in? %> 
-          <ul>
-            <li><%= link_to "Appointmnets", appointments_path %></li>
-          </ul>
-          <ul>
-             <li><%= link_to "Schedule Appointmnets", new_appointment_path %></li>
-          </ul>
-          <ul>
-              <li><%= link_to "Our Stylists", employees_path %></li>
-          </ul>
-          <ul>
-              <li><%= link_to "Signout", destroy_user_session_path, method: "DELETE" %></li>
-          </ul>
-      <% else %>
-          <ul>
-              <li><%= link_to "I am NOT LOGGED IN", "#" %></li>
-          </ul>
-      <% end %>
-    </ul>
-  </div>
-</nav>
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
- landing page backup
+Please make sure to update tests as appropriate.
 
-<li><%= link_to "Signup", signup_path %></li>
-<li><%= link_to "Log In", login_path %></li>
-<li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post %></li>
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-<%= link_to "Employee Login", employee_login_path %>

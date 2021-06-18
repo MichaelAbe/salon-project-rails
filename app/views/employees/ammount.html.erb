@@ -1,0 +1,6 @@
+<h1>New</h1>
+
+<% @employees.each do |e| %>
+    <%= e.first_name %>
+    <%= e.appointments.count%>
+<%end%>

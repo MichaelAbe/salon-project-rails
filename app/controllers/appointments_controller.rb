@@ -76,9 +76,9 @@ class AppointmentsController < ApplicationController
 
         def past_appointments
             if current_user
-                @past_appointments = Appointment.past.where(user_id: current_user.id) 
+                @past_appointments = current_user.appointments.past
             elsif current_employee
-                @past_appointments =    Appointment.current.where(employee_id: current_employee.id)
+                @past_appointments = current_employee.appointments.past
             end
         end
 

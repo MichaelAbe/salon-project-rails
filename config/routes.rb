@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   match '/auth/:google_oath2/callback' => "sessions#google", via: [:get, :post]
 
+get "/ammount", to: "employees#ammount"
+
 end

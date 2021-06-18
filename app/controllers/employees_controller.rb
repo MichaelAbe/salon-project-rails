@@ -11,6 +11,11 @@ class EmployeesController < ApplicationController
     def show 
     end
     
+    def ammount
+    
+       @employees = Employee.all
+    end
+
     private 
     
     def find_employee
@@ -20,5 +25,7 @@ class EmployeesController < ApplicationController
     def employee_params
         params.require(:employee).permit(:username, :password, :first_name, :last_name, :bio, :picture)
     end
+    
+
 
 end
